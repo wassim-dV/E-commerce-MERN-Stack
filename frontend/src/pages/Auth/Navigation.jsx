@@ -13,11 +13,11 @@ import "./Navigation.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
-// import FavoritesCount from "../Products/FavoritesCount";
+import FavoritesCount from "../Products/FavoritesCount";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  // const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -72,7 +72,7 @@ const Navigation = () => {
             <span className="hidden nav-item-name mt-[3rem]">Cart</span>{" "}
           </div>
 
-          {/* <div className="absolute top-9">
+          <div className="absolute top-9">
             {cartItems.length > 0 && (
               <span>
                 <span className="px-1 py-0 text-sm text-white bg-pink-500 rounded-full">
@@ -80,7 +80,7 @@ const Navigation = () => {
                 </span>
               </span>
             )}
-          </div> */}
+          </div>
         </Link>
 
         <Link to="/favorite" className="flex relative">
@@ -89,7 +89,7 @@ const Navigation = () => {
             <span className="hidden nav-item-name mt-[3rem]">
               Favorites
             </span>{" "}
-            {/* <FavoritesCount /> */}
+            <FavoritesCount />
           </div>
         </Link>
       </div>
